@@ -87,5 +87,5 @@ devtools::install_github("rstudio/keras")
 library(keras)
 ifelse(hasGPU,install_keras(method="conda", tensorflow = "gpu"),install_keras(method="conda"))
 
-install.packages("caret", dependencies = c("Depends", "Suggests")) # Will install a tonne of ML packages
+install.packages("caret")
 i.p("mlr")
