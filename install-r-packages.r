@@ -6,7 +6,9 @@
 # I generally test with Microsoft R Open https://mran.microsoft.com/download
 
 # Does machine have a GPU. If you do then you'll need to install CUDA/OpenCL seperately
-hasGPU <- FALSE
+# This is tested on Ubuntu. YMMV on other OSes
+gpus <- list.files(path = "/proc/driver/nvidia/gpus/")
+hasGPU <- ifelse(length(gpus)>0, TRUE, FALSE)
 
 #Wrapper for readability
 install.packages("pacman")
@@ -87,5 +89,5 @@ devtools::install_github("rstudio/keras")
 library(keras)
 ifelse(hasGPU,install_keras(method="conda", tensorflow = "gpu"),install_keras(method="conda"))
 
-install.packages("caret")
+i.p("caret")
 i.p("mlr")
